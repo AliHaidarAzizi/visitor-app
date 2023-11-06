@@ -22,3 +22,6 @@ const Venue = postgresConnection.define(
 );
 
 export default Venue;
+
+User.hasMany(Venue);
+Venue.belongsTo(User);
