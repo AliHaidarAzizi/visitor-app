@@ -3,10 +3,15 @@ import { parseMessage } from "../../utils/helper";
 
 // Update a venue by id
 const updateVenue = async (req, res) => {
-  const { id } = req.params;
+  const { id, userId } = req.params;
   const { venueName, venueCapacity } = req.body;
   try {
-    const venue = await Venue.findByPk(id);
+    const venue = await Venue.findOne({
+      where: {
+        id: id,
+        userId: userId,
+      },
+    });
     if (venue) {
       venue.venueName = venueName;
       venue.venueCapacity = venueCapacity;

@@ -3,9 +3,14 @@ import { parseMessage } from "../../utils/helper";
 
 // Delete a venue by id
 const deleteVenue = async (req, res) => {
-  const { id } = req.params;
+  const { id, userId } = req.params;
   try {
-    const venue = await Venue.findByPk(id);
+    const venue = await Venue.findOne({
+      where: {
+        id: id,
+        userId: userId,
+      },
+    });
     if (venue) {
       await venue.destroy();
       res.status(200).json(parseMessage("Venue deleted!", venue));

@@ -42,3 +42,6 @@ const Visitor = postgresConnection.define(
 );
 
 export default Visitor;
+
+Venue.hasMany(Visitor);
+Visitor.belongsTo(Venue);
