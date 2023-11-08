@@ -9,9 +9,9 @@ import listAll from "../controllers/venue/listAll";
 const venueRoutes = Router();
 
 venueRoutes.post("/add", isAuthenticated, createVenue);
-venueRoutes.get("/:userId", isAuthenticated, listAll);
-venueRoutes.get("/:userId/:id", isAuthenticated, viewVenue);
-venueRoutes.delete("/:userId/:id", isAuthenticated, deleteVenue);
-venueRoutes.put("/:userId/:id", isAuthenticated, updateVenue);
+venueRoutes.get("/", isAuthenticated, listAll);
+venueRoutes.get("/:id", isAuthenticated, viewVenue);
+venueRoutes.delete("/:id", isAuthenticated, deleteVenue);
+venueRoutes.put("/:id", isAuthenticated, updateVenue);
 
 export default venueRoutes;

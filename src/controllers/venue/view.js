@@ -5,7 +5,8 @@ import { parseMessage } from "../../utils/helper";
 
 // Read or view a venue by id
 const viewVenue = async (req, res) => {
-  const { id, userId } = req.params;
+  const { id } = req.params;
+  const userId = req.user;
   try {
     const venue = await Venue.findOne({
       where: {

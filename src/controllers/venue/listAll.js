@@ -4,7 +4,7 @@ import { parseMessage } from "../../utils/helper";
 
 const listAll = async (req, res) => {
   try {
-    const { userId } = req.params;
+    const userId = req.user;
     const venues = await Venue.findAll({
       include: {
         model: User,

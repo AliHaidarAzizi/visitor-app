@@ -20,9 +20,16 @@ const Visitor = postgresConnection.define(
     visitorContactNo: {
       type: DataTypes.STRING,
       allowNull: false,
+      validate: {
+        len: {
+          args: [8, 15],
+          msg: "Key in your correct contact No",
+        },
+        isNumeric: true,
+      },
     },
     visitorReason: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     venueId: {

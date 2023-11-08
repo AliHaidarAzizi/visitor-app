@@ -3,8 +3,9 @@ import { parseMessage } from "../../utils/helper";
 
 // Update a venue by id
 const updateVenue = async (req, res) => {
-  const { id, userId } = req.params;
+  const { id } = req.params;
   const { venueName, venueCapacity } = req.body;
+  const userId = req.user;
   try {
     const venue = await Venue.findOne({
       where: {
@@ -14,7 +15,7 @@ const updateVenue = async (req, res) => {
     });
     if (venue) {
       if (venueName) {
-        venue.venueName = venueName;   
+        venue.venueName = venueName;
       }
       if (venueCapacity) {
         venue.venueCapacity = venueCapacity;
