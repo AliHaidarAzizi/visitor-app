@@ -8,7 +8,7 @@ const isAuthenticated = (req, res, next) => {
     // IMPORTANT!!!!!
     // early guard clause, everything error or negative
     if (!decoded?.id) return res.status(401).json({ message: "Unauthorised" });
-    // IMPORTANT!!!!!
+    // IMPORTANT!!!!! this must be attached to the controller that needs auth
     req.user = decoded.id;
     next();
   } catch (error) {

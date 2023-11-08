@@ -13,8 +13,12 @@ const updateVenue = async (req, res) => {
       },
     });
     if (venue) {
-      venue.venueName = venueName;
-      venue.venueCapacity = venueCapacity;
+      if (venueName) {
+        venue.venueName = venueName;   
+      }
+      if (venueCapacity) {
+        venue.venueCapacity = venueCapacity;
+      }
       await venue.save();
       res.status(200).json(parseMessage("Venue updated!", venue));
     } else {

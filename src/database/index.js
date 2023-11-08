@@ -13,7 +13,7 @@ const dbInit = async () => {
     await User.sync({ alter: true });
     await Venue.sync({ alter: true });
     await Visitor.sync({ alter: true });
-    await qrCode.sync({ alter: true });
+    await qrCode.sync({ alter: true }); 
   } catch (error) {
     console.log(error);
     process.exit(1);
