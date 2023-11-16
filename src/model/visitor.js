@@ -32,14 +32,14 @@ const Visitor = postgresConnection.define(
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    venueId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: Venue,
-        key: "id",
-      },
-    },
+    // venueId: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    //   references: {
+    //     model: Venue,
+    //     key: "id",
+    //   },
+    // },
   },
 
   {

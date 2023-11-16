@@ -2,7 +2,7 @@ import Visitor from "../../model/visitor";
 import { parseMessage } from "../../utils/helper";
 
 const addVisitor = async (req, res) => {
-  const { visitorName, visitorEmail, visitorContactNo, visitorReason } =
+  const { visitorName, visitorEmail, visitorContactNo, visitorReason, venueId} =
     req.body;
 
   try {
@@ -11,6 +11,7 @@ const addVisitor = async (req, res) => {
       visitorEmail,
       visitorContactNo,
       visitorReason,
+      venueId
     });
     res.status(201).json(parseMessage("Check In Successful!", visitor));
     return;
