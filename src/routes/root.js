@@ -6,6 +6,7 @@ import venueRoutes from "./venueRoutes";
 import visitorRoutes from "./visitorRoutes";
 import isAuthenticated from "../middleware/isAuthenticated";
 import pageAuth from "../controllers/user/pageAuth";
+import userRoutes from "./userRoutes";
 
 const root = express.Router();
 
@@ -14,6 +15,7 @@ root.post("/", postRoot);
 root.use("/auth", authRoutes);
 root.use("/venue", venueRoutes);
 root.use("/visitor", visitorRoutes);
+root.use("/user", userRoutes);
 root.get("/public", pageAuth.publicController);
 root.get("/protected", isAuthenticated, pageAuth.protectedController);
 

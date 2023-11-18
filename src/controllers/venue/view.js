@@ -2,6 +2,7 @@ import { DataTypes } from "sequelize";
 import User from "../../model/user";
 import Venue from "../../model/venue";
 import { parseMessage } from "../../utils/helper";
+import listAllVisitor from "../visitor/listAll";
 
 // Read or view a venue by id
 const viewVenue = async (req, res) => {
@@ -16,6 +17,7 @@ const viewVenue = async (req, res) => {
     });
     if (venue) {
       res.status(200).json(parseMessage("Venue found!", venue));
+
       return;
     } else {
       res.status(404).json(parseMessage("Venue not found!"));

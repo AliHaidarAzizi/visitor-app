@@ -11,11 +11,11 @@ const listAllVisitor = async (req, res) => {
     const length = list.length;
     // console.log(DataTypes.list);
     if (list === null) {
-      res.status(404).json(parseMessage("Link not found"));
+      res.status(404).json(parseMessage("no visitors"));
       return;
     }
 
-    res.status(201).json(parseMessage(`${length} event(s) retrieved`, list));
+    res.status(201).json(parseMessage(`${length} visitors(s) retrieved`, list));
     return;
   } catch (error) {
     res.status(500).json({ message: "Server error", error: error });
