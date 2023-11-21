@@ -1,4 +1,4 @@
-import { DataTypes } from "sequelize";
+import { DataTypes, Sequelize } from "sequelize";
 import User from "../../model/user";
 import Venue from "../../model/venue";
 import { parseMessage } from "../../utils/helper";
@@ -12,6 +12,17 @@ const viewVenue = async (req, res) => {
       where: {
         id: id,
         userId: userId,
+      },
+      attributes: {
+        include: [
+          "id", // Add other attributes you want from the Venue model
+          [
+            Sequelize.literal(
+              "(SELECT COUNT(id) FROM visitors WHERE visitors.venue_id = Venue.id)"
+            ),
+            "visitLogsCount",
+          ],
+        ],
       },
     });
     if (venue) {
