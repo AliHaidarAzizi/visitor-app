@@ -4,7 +4,7 @@ import listAllVisitor from "../controllers/visitor/listAll";
 
 const visitorRoutes = Router();
 
-visitorRoutes.post("/", addVisitor);
+visitorRoutes.post("/:venueId", addVisitor);
 visitorRoutes.get("/:venueId", listAllVisitor);
 
 export default visitorRoutes;

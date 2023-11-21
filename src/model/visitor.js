@@ -32,14 +32,14 @@ const Visitor = postgresConnection.define(
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    // venueId: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: false,
-    //   references: {
-    //     model: Venue,
-    //     key: "id",
-    //   },
-    // },
+    venueId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: Venue,
+        key: "id",
+      },
+    },
   },
 
   {
@@ -49,6 +49,3 @@ const Visitor = postgresConnection.define(
 );
 
 export default Visitor;
-
-Venue.hasMany(Visitor);
-Visitor.belongsTo(Venue);

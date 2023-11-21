@@ -2,7 +2,6 @@ import { DataTypes } from "sequelize";
 import User from "../../model/user";
 import Venue from "../../model/venue";
 import { parseMessage } from "../../utils/helper";
-import listAllVisitor from "../visitor/listAll";
 
 // Read or view a venue by id
 const viewVenue = async (req, res) => {

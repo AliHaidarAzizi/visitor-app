@@ -13,7 +13,7 @@ const listAll = async (req, res) => {
           "id", // Add other attributes you want from the Venue model
           [
             Sequelize.literal(
-              '(SELECT COUNT(*) FROM "visit_logs" WHERE "visit_logs"."venue_id" = "venue"."id")'
+              '(SELECT COUNT(*) FROM "visitors" WHERE "visitors"."id" = "venue_id")'
             ),
             "visitLogsCount",
           ],

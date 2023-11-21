@@ -38,3 +38,4 @@ const visitLog = postgresConnection.define(
 export default visitLog;
 
 Venue.belongsToMany(Visitor, { through: visitLog });
+Visitor.belongsToMany(Venue, { through: visitLog });
