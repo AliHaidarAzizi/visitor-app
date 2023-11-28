@@ -6,8 +6,18 @@ import { parseMessage } from "../../utils/helper";
 const listAll = async (req, res) => {
   try {
     const userId = req.user;
+
+    // Get the page number from the request query
+    const page = req.query.page || 1;
+    console.log(">>>>>>>>>", page);
+    const limit = 5;
+
+    // Calculate the offset
+    const offset = (page - 1) * limit;
+
     const venues = await Venue.findAll({
-      limit: 5,
+      limit: limit,
+      offset: offset,
       attributes: {
         include: [
           "id", // Add other attributes you want from the Venue model
