@@ -15,7 +15,7 @@ const listAll = async (req, res) => {
     // Calculate the offset
     const offset = (page - 1) * limit;
 
-    const venues = await Venue.findAll({
+    const { count, rows: venues } = await Venue.findAndCountAll({
       limit: limit,
       offset: offset,
       attributes: {
@@ -39,13 +39,22 @@ const listAll = async (req, res) => {
 
     const list = venues;
     const length = list.length;
+    const maxPage = Math.ceil(count / limit);
     // console.log(DataTypes.list);
     if (list === null) {
       res.status(404).json(parseMessage("Link not found"));
       return;
     }
 
-    res.status(201).json(parseMessage(`${length} event(s) retrieved`, list));
+    res.status(201).json({
+      message: `${length} event(s) retrieved`,
+      pagination: {
+        currentPage: page,
+        rowsLength: count,
+        maxPage,
+      },
+      list,
+    });
     return;
   } catch (error) {
     res.status(500).json({ message: "Server error", error: error });
