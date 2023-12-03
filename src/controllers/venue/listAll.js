@@ -9,7 +9,7 @@ const listAll = async (req, res) => {
 
     // Get the page number from the request query
     const page = req.query.page || 1;
-    console.log(">>>>>>>>>", page);
+    // console.log(">>>>>>>>>", page);
     const limit = 5;
 
     // Calculate the offset
