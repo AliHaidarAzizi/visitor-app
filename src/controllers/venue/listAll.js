@@ -16,6 +16,9 @@ const listAll = async (req, res) => {
     const offset = (page - 1) * limit;
 
     const { count, rows: venues } = await Venue.findAndCountAll({
+      where: {
+        deletedAt: null,
+      },
       limit: limit,
       offset: offset,
       attributes: {

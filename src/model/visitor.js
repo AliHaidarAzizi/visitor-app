@@ -40,6 +40,9 @@ const Visitor = postgresConnection.define(
         key: "id",
       },
     },
+    deletedAt: {
+      type: DataTypes.DATE,
+    },
   },
 
   {

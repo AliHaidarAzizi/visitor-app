@@ -31,7 +31,7 @@ const listAllVisitor = async (req, res) => {
       // },
     });
     const list = visitors;
-    console.log(list);
+    // console.log(list);
     const length = list.length;
     const maxPage = Math.ceil(count / limit);
     // console.log(DataTypes.list);

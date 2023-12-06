@@ -14,6 +14,9 @@ const Venue = postgresConnection.define(
       type: DataTypes.INTEGER,
       allowNull: true,
     },
+    deletedAt: {
+      type: DataTypes.DATE,
+    },
   },
   {
     timestamps: true,
