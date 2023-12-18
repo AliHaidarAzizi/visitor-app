@@ -4,7 +4,7 @@ const updateUser = async (req, res) => {
   const userId = req.user;
   console.log(">>>>>>>>>", userId);
   const { email, username } = req.body;
-  console.log(req.body);
+  // console.log(req.body);
 
   try {
     const user = await User.update(
