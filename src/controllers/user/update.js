@@ -1,9 +1,10 @@
 import User from "../../model/user";
-import { parseMessage } from "../../utils/helper";
 
 const updateUser = async (req, res) => {
   const userId = req.user;
+  console.log(">>>>>>>>>", userId);
   const { email, username } = req.body;
+  console.log(req.body);
 
   try {
     const user = await User.update(
@@ -13,7 +14,8 @@ const updateUser = async (req, res) => {
         returning: true,
       }
     );
-    res.status(200).json(parseMessage("user details updated!", user));
+    console.log(user);
+    res.status(200).json({ message: "user details updated!", data: user });
   } catch (error) {
     console.log(">>>>>>>", error);
     res.status(500).json({ message: "Server error", error: error });
